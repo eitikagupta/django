@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.conf.urls.static import *
 
 def index(request):
     return HttpResponse("Hello From Index Ji")
@@ -29,3 +30,5 @@ def form(request):
        return render(request,"student/formhandle.html",{"myvar":temp})
     else:
         return render(request,"student/form.html")
+def templateindex(request):
+    return render(request,"student/templateindex.html")
