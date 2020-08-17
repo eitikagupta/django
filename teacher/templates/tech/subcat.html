@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'subcat' %}" method="post">
+        {% csrf_token %} Chosse Cateogory:
+        <select name="cid">
+            {% for i in allcat %}
+                <option value="{{ i.id }}">{{i.name}}</option>
+            {% endfor %}
+        </select>
+        <br/> Enter Sub Category Name:
+        <input type="text" name="subcatname" id=""><br/>
+        <input type="submit" value="Save Sub Cat">
+    </form>
+    <table>
+        {% for i in allsubcat %}
+        <tr>
+
+            
+            <td> {{i.id}} </td>
+            <td> {{i.cid.name}} </td>
+            <td> {{i.scname}} </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'category' %}" method="post">
+        {% csrf_token %} Enter Category Name:<br/>
+        <input type="text" name="cname">
+        <input type="submit" value="Add Category">
+    </form>
+    <h2>All Categories</h2>
+    <table>
+        {% for i in data %}
+        <tr>
+
+            <td> {{i.id}} </td>
+            <td> {{i.name}} </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

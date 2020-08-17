@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'addtec1' %}" method="post">
+        {% csrf_token %} Name:
+        <input type="text" name="t_name" /><br/> Email:
+        <input type="text" name="t_email" /><br/> Phone:
+        <input type="text" name="t_phone" /><br/> Address:
+        <textarea name="t_address"></textarea>
+        <br/>
+        <input type="submit" />
+    </form>
+</body>
+
+</html>
