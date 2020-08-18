@@ -11,5 +11,8 @@ urlpatterns = [
     path('search',views.search,name="search"),
     path('category',views.category,name="category"),
     path('subcat',views.subcat,name="subcat"),
+    path('produts',views.produts,name="produts"),
+    path('savepro',views.savepro,name="savepro"),
+    path('viewproducts',views.viewproducts,name="viewproducts"),
 
 ]

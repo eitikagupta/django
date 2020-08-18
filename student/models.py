@@ -16,3 +16,12 @@ class Category(models.Model):
 class Subcategory(models.Model):
     scname = models.CharField(max_length=200)
     cid = models.ForeignKey(Category,on_delete=models.CASCADE)
+
+class Products(models.Model):
+    cid = models.ForeignKey(Category,on_delete=models.CASCADE)
+    scid = models.ForeignKey(Subcategory,on_delete=models.CASCADE)
+    pname = models.CharField(max_length=200)
+    pprice = models.IntegerField()
+    brand = models.CharField(max_length=200)
+    attr1 = models.CharField(max_length=200)
+    value1= models.CharField(max_length=200)

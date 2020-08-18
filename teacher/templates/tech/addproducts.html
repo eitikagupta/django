@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+    <form action="{% url 'savepro' %}" method="post">
+        {% csrf_token %}
+        Category: <select name="cid">
+            {% for i in cat %}
+            <option value="{{i.id}}"> {{ i.name }} </option>
+            {% endfor %}
+        </select>
+        <br/>
+        Subcategory:<select name="scid">
+            {% for i in subcat %}
+            <option value="{{i.id}}"> {{ i.scname }} </option>
+            {% endfor %}
+        </select><br/>
+        Product name:
+        <input type="text" name="pname" id=""><br/>
+        Price:
+        <input type="text" name="pprice" id=""><br/>
+        Brand:
+        <input type="text" name="brand" id=""><br/>
+        Attr Name:
+        <input type="text" name="attr1" id=""><br/>
+        Attr Value:
+        <input type="text" name="value1" id=""><br/>
+        <input type="submit" value="Save Product">
+        <a href="{% url 'viewproducts' %}" >All Product</a>
+    </form> 
+ </body>
+ </html>

@@ -56,3 +56,23 @@ def subcat(request):
         allcat = Category.objects.all()
         allsubcat = Subcategory.objects.all()
         return render(request,"tech/subcat.html",{"allcat":allcat,"allsubcat":allsubcat})
+def produts(request):
+    allcat = Category.objects.all()
+    allsubcat = Subcategory.objects.all()
+    return render (request,"tech/addproducts.html",{"cat":allcat,"subcat":allsubcat})
+
+def viewproducts(request):
+    allpros = Products.objects.all()
+
+    return render (request,"tech/viewproducts.html",{"data":allpros})
+def savepro(request):
+    obj = Products()
+    obj.pname  = request.POST['pname']
+    obj.pprice  = request.POST['pprice']
+    obj.brand  = request.POST['brand']
+    obj.attr1  = request.POST['attr1']
+    obj.value1  = request.POST['value1']
+    obj.cid =  Category.objects.get(id=request.POST['cid'])
+    obj.scid =  Subcategory.objects.get(id=request.POST['scid'])
+    obj.save()
+    return redirect(viewproducts)

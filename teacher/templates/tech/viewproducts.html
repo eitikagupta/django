@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+    <a href="{% url 'produts' %}">Add new Product</a>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>brand</th>
+            <th>Attribute</th>
+            <th>Value</th>
+            <th>Cat</th>
+            <th>Subcat</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+                <td>{{i.pname}}</td>
+                <td>{{i.pprice}}</td>
+                <td>{{i.brand}}</td>
+                <td>{{i.attr1}}</td>
+                <td>{{i.value1}}</td>
+                <td>{{i.cid.name}}</td>
+                <td>{{i.scid.scname}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+ </body>
+ </html>
