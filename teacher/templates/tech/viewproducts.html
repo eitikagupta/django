@@ -16,6 +16,7 @@
             <th>Value</th>
             <th>Cat</th>
             <th>Subcat</th>
+            <th colspan="2">Operations</th>
         </tr>
         {% for i in data %}
             <tr>
@@ -26,6 +27,13 @@
                 <td>{{i.value1}}</td>
                 <td>{{i.cid.name}}</td>
                 <td>{{i.scid.scname}}</td>
+                <td>
+                    <button>Update</button>
+                </td>
+                <td>
+                    <a href="{% url 'dele' i.id %}">Delete</a>
+                    
+                </td>
             </tr>
         {% endfor %}
     </table>

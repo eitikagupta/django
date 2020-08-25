@@ -76,3 +76,7 @@ def savepro(request):
     obj.scid =  Subcategory.objects.get(id=request.POST['scid'])
     obj.save()
     return redirect(viewproducts)
+def dele(request,ids):
+    obj = Products.objects.get(id=ids)
+    obj.delete()
+    return redirect("viewproducts")
