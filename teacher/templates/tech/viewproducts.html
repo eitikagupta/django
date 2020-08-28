@@ -27,8 +27,9 @@
                 <td>{{i.value1}}</td>
                 <td>{{i.cid.name}}</td>
                 <td>{{i.scid.scname}}</td>
+                <td><img src="{{i.image.url}}" width="100px"></td>
                 <td>
-                    <button>Update</button>
+                   <a href="{% url 'updateform' i.id %}">Update</a>
                 </td>
                 <td>
                     <a href="{% url 'dele' i.id %}">Delete</a>

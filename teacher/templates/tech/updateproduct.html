@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Update Your Product </h2>
+   <form enctype="multipart/form-data" action="{% url 'updatepro' %}" method="post">
+       {% csrf_token %}
+       Category: <select name="cid">
+           {% for i in cat %}
+           <option value="{{i.id}}"> {{ i.name }} </option>
+           {% endfor %}
+       </select>
+       <br/>
+       Subcategory:<select name="scid">
+           {% for i in subcat %}
+           <option value="{{i.id}}"> {{ i.scname }} </option>
+           {% endfor %}
+       </select><br/>
+    
+       Product name: 
+       <input type="text" name="pname" value="{{prod.pname}}" id=""><br/>
+       Price:
+       <input type="text" name="pprice" value="{{prod.pprice}}" id=""><br/>
+       Brand:
+       <input type="text" name="brand"value="{{prod.brand}}" ><br/>
+       Attr Name:
+       <input type="text" name="attr1"value="{{prod.attr1}}" ><br/>
+       Attr Value:
+       <input type="text" name="value1"value="{{prod.value1}}" ><br/>
+       <input type="hidden" name="hidenid"value="{{prod.id}}" ><br/>
+       Image:
+       <img src="{{prod.image.url}}" width="100px"/>
+       <input type="file" name="file"/><br/>
+       <input type="submit" value="Update Product">
+       <a href="{% url 'viewproducts' %}" >All Product</a>
+   </form> 
+</body>
+</html>

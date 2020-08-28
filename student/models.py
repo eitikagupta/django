@@ -25,3 +25,4 @@ class Products(models.Model):
     brand = models.CharField(max_length=200)
     attr1 = models.CharField(max_length=200)
     value1= models.CharField(max_length=200)
+    image = models.ImageField(upload_to="products/",default="blank.png")

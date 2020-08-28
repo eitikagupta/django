@@ -6,7 +6,7 @@
      <title>Document</title>
  </head>
  <body>
-    <form action="{% url 'savepro' %}" method="post">
+    <form enctype="multipart/form-data" action="{% url 'savepro' %}" method="post">
         {% csrf_token %}
         Category: <select name="cid">
             {% for i in cat %}
@@ -29,6 +29,8 @@
         <input type="text" name="attr1" id=""><br/>
         Attr Value:
         <input type="text" name="value1" id=""><br/>
+        Image:
+        <input type="file" name="file"/><br/>
         <input type="submit" value="Save Product">
         <a href="{% url 'viewproducts' %}" >All Product</a>
     </form> 

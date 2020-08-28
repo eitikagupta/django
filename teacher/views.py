@@ -72,6 +72,8 @@ def savepro(request):
     obj.brand  = request.POST['brand']
     obj.attr1  = request.POST['attr1']
     obj.value1  = request.POST['value1']
+    obj.image = request.FILES['file']
+    
     obj.cid =  Category.objects.get(id=request.POST['cid'])
     obj.scid =  Subcategory.objects.get(id=request.POST['scid'])
     obj.save()
@@ -80,3 +82,23 @@ def dele(request,ids):
     obj = Products.objects.get(id=ids)
     obj.delete()
     return redirect("viewproducts")
+
+def updateform(request,ids):
+    allcat = Category.objects.all()
+    allsubcat = Subcategory.objects.all()
+    prod = Products.objects.get(id=ids)
+    return render (request,"tech/updateproduct.html",{"cat":allcat,"subcat":allsubcat,"prod":prod})
+def updatepro(request):
+    obj = Products.objects.get(id=request.POST['hidenid'])
+    obj.pname  = request.POST['pname']
+    obj.pprice  = request.POST['pprice']
+    obj.brand  = request.POST['brand']
+    obj.attr1  = request.POST['attr1']
+    obj.value1  = request.POST['value1']
+    # if "file" in request.POST:
+    #     obj.image = request.FILES['file']
+    
+    # obj.cid =  Category.objects.get(id=request.POST['cid'])
+    # obj.scid =  Subcategory.objects.get(id=request.POST['scid'])
+    obj.save()
+    return redirect(viewproducts)
